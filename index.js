@@ -48,4 +48,4 @@ chat.on('connection', (socket) =>
     })
 });
 
-http.listen(8080, "0.0.0.0");
+http.listen(8080);
