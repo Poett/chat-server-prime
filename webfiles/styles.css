@@ -1,0 +1,79 @@
+body 
+{
+	overflow: hidden;
+	background: #F2F2F2;
+	padding: 70px 0;
+	text-align: center;
+	position: relative;
+}
+
+
+#userInputBox {
+  margin: auto;
+  width: 50%;
+  padding: 15rem 25%;
+}
+
+
+
+#chatContainer
+{
+	position : relative; 
+	bottom: 0;
+	margin: 0 auto;
+    width: 90%;
+	
+	overflow-x: auto;
+	overflow-y: scroll;
+	height: 36rem;
+}
+.page-header
+{
+	text-align: center;
+}
+
+
+#chatSubmit
+{
+	width: auto;
+	margin: 0 auto;
+	background: black;
+}
+
+#textBox
+{
+	width: 85%;
+	border-style: inset;
+	border-width:5px;
+	border-color: #62D5FB;
+	background-color: white;
+	color: black;
+}
+
+#textbutton
+{
+	border-style: inset;
+}
+
+#messages
+{
+	color: #F3A900;
+	text-align: left;
+}
+
+li
+{	
+	float:left;
+    clear:left;
+	overflow: hidden;
+	white-space:nowrap;
+	letter-spacing: .10em;
+	animation: 
+		typing 2.5s steps(40) .1s 1 normal both;
+}
+
+ @keyframes typing{
+	 from {width: 0 }
+	 to {width:100%;}
+ }
+ 

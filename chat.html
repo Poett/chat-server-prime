@@ -1,38 +1,48 @@
-<!doctype html>
-<html>
-    
-<head>
-<title>Socket.IO chat</title>
-<link rel="stylesheet" type="text/css" href="./chat.css">
-</head>
+<!DOCTYPE html>
 
-<body>
-<ul id="messages"></ul>
-<form id="msgBar" action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
-</form>
+	<head>
+	
+	<title>Chat</title>
+	<link rel="stylesheet" href="./styles.css">
+	
+	</head>
 
+	<html>
+		<body>	
+			<div id="chatBox">
+				<div id="chatContainer">
+					<ul id="messages" type="none">
+						<li>Welcome to the chat.</li>
+					</ul>
+				</div>
 
+				<form id="msg" action="">
+					<input id="textBox" autocomplete="off">
+				</form>	
+			</div>
+		</body>
+	
+		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		
+		<script>
 
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-
-<script>
-  var socket = io('/chat');
-
-  $('#msgBar').submit(() => 
-    {
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-
-  socket.on('chat message', (msg, id) => 
-    {
-      $('#messages').append($('<li>').text(id + ": " + msg));
-    });
-</script>
-
-</body>
-    
-</html>
+			var socket = io('/chat');
+		
+			$('#msg').submit( () => 
+			{
+				socket.emit('chat message', $('#textBox').val());
+				$('#textBox').val('');
+				
+				return false;
+			});
+			
+			socket.on('chat message', (msg, id) => 
+			{
+				$('#chatContainer').scrollTop($('#chatContainer')[0].scrollHeight);	
+				$('#messages').append($('<li>').text(id + ": " + msg));
+			});
+		
+		</script>
+	
+	</html>
